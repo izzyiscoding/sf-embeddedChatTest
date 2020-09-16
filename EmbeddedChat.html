@@ -95,6 +95,19 @@
 			}
 			);
 		};
+		
+		$Lightning.use(
+		    "embeddedService:sidebarApp",
+		    function () {
+			$Lightning.createComponent(
+			    "c:PreChatFormTelia_Lightning",
+			    {},
+			    document.body,
+			    function (cmp) {
+				console.log("callback");
+			    }
+			);
+		    });
 
 		if (!window.embedded_svc) {
 			var s = document.createElement('script');
