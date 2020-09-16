@@ -18,7 +18,22 @@
 		}
 	</style>
 	
-	<script src="https://telianorge--dev.my.salesforce.com/lightning/lightning.out.js"></script>
+	<script src="https://telianorge--dev.my.salesforce.com/lightning/lightning.out.js">
+			$Lightning.use(
+		    "embeddedService:sidebarApp",
+		    function () {
+			$Lightning.createComponent(
+			    "c:PreChatFormTelia_Lightning",
+			    {},
+			    document.body,
+			    function (cmp) {
+				console.log("callback");
+			    }
+			);
+		    });
+	
+	
+	</script>
 	<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 	<script type='text/javascript'>
 		var initESW = function(gslbBaseURL) {
@@ -96,19 +111,6 @@
 			);
 		};
 		
-		$Lightning.use(
-		    "embeddedService:sidebarApp",
-		    function () {
-			$Lightning.createComponent(
-			    "c:PreChatFormTelia_Lightning",
-			    {},
-			    document.body,
-			    function (cmp) {
-				console.log("callback");
-			    }
-			);
-		    });
-
 		if (!window.embedded_svc) {
 			var s = document.createElement('script');
 			s.setAttribute('src', 'https://telianorge--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
