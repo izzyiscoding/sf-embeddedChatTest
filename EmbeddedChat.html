@@ -41,7 +41,8 @@
 
 		embedded_svc.settings.extraPrechatFormDetails = [{"label":"FullNameDetail","name":"FirstName","transcriptFields":["Visitor_Name__c"],"displayToAgent":true},
 								{"label":"PhoneDetail","transcriptFields":["Visitor_Phone__c"],"displayToAgent":true},
-								{"label":"AccountNameDetail","displayToAgent":true},
+								{"label":"AccountNameDetail","transcriptFields":["Supplied_Company_Name__c"], "displayToAgent":true},
+								{"label":"CategoryDetail","transcriptFields":["Category__c"], "displayToAgent":true},
 								{"label":"NotAllowedForTraining","transcriptFields":["Not_Allowed_For_Training_Text__c"],"displayToAgent":true},
 								{"label":"AccountIdDetail","transcriptFields":["AccountId"],"displayToAgent":true},
 								{"label": "URL","value": window.location.href, "displayToAgent": true, "transcriptFields": ["ReferrerUri"]}];
@@ -68,8 +69,9 @@
 				embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.VisitorName;
 				embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.VisitorPhone;
 				embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.CompanyName;
-				embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.NotAllowedForTraining;
-				embedded_svc.settings.extraPrechatFormDetails[4].value = event.detail.AccountRecId;
+				embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.Category;
+				embedded_svc.settings.extraPrechatFormDetails[4].value = event.detail.NotAllowedForTraining;
+				embedded_svc.settings.extraPrechatFormDetails[5].value = event.detail.AccountRecId;
 				// Fire startChat callback.
 				event.detail.callback();
 			},
@@ -78,20 +80,20 @@
 
 		embedded_svc.init(
 			'https://telianorge--dev.my.salesforce.com',
-			'https://dev-tsn.cs108.force.com/chatTeliaWeb',
+			'https://dev-tsn.cs89.force.com/chatTeliaWeb',
 			gslbBaseURL,
-			'00D1l0000000aF7',
-			'PreChatFormTeliaEmbedded',
+			'00D0E000000DzzU',
+			'Telia_B2B_Embedded_Chat',
 			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-fra.salesforceliveagent.com/content',
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-cdg.salesforceliveagent.com/content',
 				deploymentId: '572240000008R26',
-				buttonId: '5731l0000004Ccx',
-				baseLiveAgentURL: 'https://d.la1-c1cs-fra.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I1l00000001OEEAY_17478274104',
+				buttonId: '57306000000TRuO',
+				baseLiveAgentURL: 'https://d.la2-c1cs-cdg.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I06000000fxYZEAY_174bb55e0cd',
 				isOfflineSupportEnabled: false
 			}
-			);
-		};
+		);
+	};
 
 		if (!window.embedded_svc) {
 			var s = document.createElement('script');
